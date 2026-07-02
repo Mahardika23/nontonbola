@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+:root {
+  --background: #070707;
+  --foreground: #ededed;
+  /* trophy gold — the hero accent */
+  --gold: #f5c55a;
+  --gold-dim: #8a6d2f;
+  /* cool tone, reserved exclusively for the live / next match */
+  --live: #4fd1c5;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-gold: var(--gold);
+  --color-live: var(--live);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background:
+    radial-gradient(1100px 760px at 50% -8%, rgba(245, 197, 90, 0.07), transparent 62%),
+    var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+/* live/next-match marker pulse */
+@keyframes nb-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+.nb-pulse {
+  animation: nb-pulse 1.6s ease-in-out infinite;
+}
+
+/* hover-card entrance */
+@keyframes nb-fade {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
